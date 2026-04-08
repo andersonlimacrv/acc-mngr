@@ -5,7 +5,7 @@
 - [ ] Initialize Go module
 - [ ] Environment configuration
 
-## Infrastructure
+### Infrastructure
 - [ ] Dockerfile
 - [ ] docker-compose
 - [ ] Database setup

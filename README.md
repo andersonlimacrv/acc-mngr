@@ -8,11 +8,8 @@ Centralized multi-tenant authentication service built with Go.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
-- [Project Structure](#project-structure)
-- [Running](#running)
 - [Checklist](#checklist)
 - [Documentation](#documentation)
-- [License](#license)
 
 ---
 
@@ -28,86 +25,51 @@ acc-mngr is an authentication service responsible for:
 ---
 
 ## Architecture
-
-### Flow Diagram
-
 ```mermaid
 flowchart TD
 
-Client[Vite Client] --> API[Go API]
+  subgraph Clients [Clients]
+    Vite[Vite SPA]
+    FastAPI[FastAPI apps]
+  end
 
-subgraph Server [Auth Service]
-    API --> HTTP[HTTP Layer]
-    HTTP --> Middleware[Middleware]
-    Middleware --> Usecase[Usecase Layer]
-    Usecase --> Domain[Domain Layer]
-end
+  Clients --> GW[API Gateway\nTraefik — TLS · rate limit · CORS]
 
-Domain --> Repo[Repository]
-Domain --> Provider[Providers]
+  subgraph AccMngr [acc-mngr — Go]
+    GW --> Transport[Transport layer\nchi router · middleware chain]
+    Transport --> UC[Usecases\nauth · account · app · webhook]
+    UC --> Domain[Domain\nentities · interfaces]
 
-Repo --> DB[(Postgres)]
-Provider --> OAuth[OAuth Providers]
-Provider --> Email[SMTP]
+    subgraph Infra [Infrastructure — implements Domain interfaces]
+      PGRepo[Postgres repo\npgx · sqlc]
+      RedisRepo[Redis\nsessions · blocklist]
+      OAuthAdapter[OAuth adapter\nGoogle · GitHub]
+      EmailAdapter[Email\nSMTP]
+    end
 
-Middleware --> JWT[JWT Validation]
-JWT --> Domain
-````
+    Domain --> PGRepo
+    Domain --> RedisRepo
+    Domain --> OAuthAdapter
+    Domain --> EmailAdapter
+  end
 
-Full documentation:
+  PGRepo --> DB[(PostgreSQL)]
+  RedisRepo --> Cache[(Redis)]
+  OAuthAdapter --> OAuth[Google / GitHub]
+  EmailAdapter --> SMTP[SMTP]
 
-* [Architecture](./docs/architecture.md)
-* [Diagram (Mermaid)](./docs/diagram.mmd)
+  subgraph Observability [Observabilidade]
+    Logs[slog estruturado]
+    Metrics[Prometheus /metrics]
+    Traces[OpenTelemetry]
+  end
 
----
-
-## Project Structure
-
-```bash
-acc-mngr/
-├── client/
-├── server/
-├── docs/
-│   ├── architecture.md
-│   ├── diagram.mmd
-│   └── checklist.md
-├── docker-compose.yaml
-├── Makefile
-└── README.md
+  AccMngr -.-> Observability
 ```
-
----
-
-## Running
-
-### Docker
-
-```bash
-docker-compose up --build
-```
-
-### Backend
-
-```bash
-cd server
-go run cmd/api/main.go
-```
-
-### Frontend
-
-```bash
-cd client
-npm install
-npm run dev
-```
-
----
 
 ## Checklist
 
 * [Development Checklist](./docs/checklist.md)
-
----
 
 
 
