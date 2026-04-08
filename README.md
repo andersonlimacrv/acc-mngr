@@ -109,16 +109,5 @@ npm run dev
 
 ---
 
-## Documentation
 
-* [Architecture](./docs/architecture.md)
-* [Diagram (Mermaid)](./docs/diagram.mmd)
-
----
-
-## License
-
-See `LICENSE`
-
-```
 

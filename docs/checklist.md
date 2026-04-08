@@ -1,6 +1,6 @@
 # Checklist
 
-## Setup
+### Setup
 - [ ] Project structure
 - [ ] Initialize Go module
 - [ ] Environment configuration
@@ -10,34 +10,34 @@
 - [ ] docker-compose
 - [ ] Database setup
 
-## Backend
+### Backend
 - [ ] Layered architecture
 - [ ] Database connection
 - [ ] Migrations
 
-## Authentication
+### Authentication
 - [ ] Register
 - [ ] Login
 - [ ] JWT
 - [ ] Refresh token
 
-## OAuth
+### OAuth
 - [ ] Google integration
 - [ ] GitHub integration
 
-## Security
+### Security
 - [ ] Middleware
 - [ ] Input validation
 - [ ] CORS
 
-## Frontend
+### Frontend
 - [ ] Vite setup
 - [ ] API integration
 
-## Testing
+### Testing
 - [ ] Unit tests
 - [ ] Integration tests
 
-## Deployment
+### Deployment
 - [ ] Docker build
 - [ ] Production configuration
