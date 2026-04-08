@@ -118,6 +118,8 @@ flowchart TD
 | **Frontend**   | Vite + React + TypeScript                                                |
 | **Observability** | `slog`, Prometheus, OpenTelemetry                                      |
 | **Container**  | Docker, Docker Compose                                                   |
+| **QA & CI/CD** | `go test`, `testcontainers-go`, `golangci-lint`, GitHub Actions          |
+| **API Docs**   | OpenAPI v3 (via `oapi-codegen`)                                          |
 
 ---
 

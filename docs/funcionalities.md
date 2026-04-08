@@ -18,6 +18,8 @@ Criar uma alternativa mais simples (porém profissional) a serviços como **Cler
 | Observabilidade (métricas, traces) | ✅ `Prometheus /metrics`, `OpenTelemetry`, `slog` estruturado                     |
 | API pronta para consumo externo    | ✅ `Transport layer (chi router)`, `API Gateway (Traefik)`                        |
 | Interface de usuário (UI) embutida | ✅ `Clients → Vite SPA` – frontend em React que consumirá a API Go                |
+| Documentação Automática da API     | ✅ `OpenAPI v3` (`oapi-codegen` com design-first) acoplado às rotas backend        |
+| CI/CD e Qualidade Automatizada     | ✅ `GitHub Actions` com `golangci-lint` e execução de testes (unidade e integrados)|
 
 ---
 
