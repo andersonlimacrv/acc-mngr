@@ -44,7 +44,7 @@ node_modules/
 dist/
 build/
 .vite/
-
+frontend-output/
 # Logs
 npm-debug.log*
 yarn-debug.log*
@@ -96,6 +96,7 @@ temp/
 # =========================
 *.sqlite
 *.db
+backups/
 
 # =========================
 # 🔥 LOGS GERAIS

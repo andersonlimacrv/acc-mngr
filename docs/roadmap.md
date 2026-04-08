@@ -6,13 +6,13 @@
 ## Phase 1: Zero-Cost Infra, Testing & CI/CD Setup
 *Objetivo: Preparar o terreno para desenvolvimento estruturado, focado em testes confiáveis, rigidez no CI e deploy open source/grátis.*
 - [ ] Inicializar estrutura de diretórios do projeto Go (`cmd`, `internal`, `pkg`) focada na Clean Architecture.
-- [ ] Configuração de Variáveis de Ambiente (`godotenv` ou `viper`).
+- [ ] Configuração de Variáveis de Ambiente (`.env` + `viper`).
 - [ ] Configuração antecipada de Logs Estruturados Globais (`slog`).
 - [ ] Setup Inicial de Testes Rápidos: `go test` cobrindo o core (Use Cases) e injeção eficiente usando Mocks (`gomock` ou `testify/mock`).
 - [ ] Setup de Testes E2E: Integrar o `testcontainers-go` (Biblioteca que sobe containers Docker efêmeros do Postgres/Redis no meio do seu código de testes, validando queries e inserções na prática).
 - [ ] Pipeline de Integração Contínua (CI): Configurar o **GitHub Actions** (Ex: `workflows/ci.yml`) para linters de PRs com `golangci-lint`, check de sintaxe estrita e rodar toda a suíte de testes travando Merge com código nocivo.
 - [ ] Setup do `docker-compose.yaml` VPS-like: PostgreSQL e Redis unificados.
-- [ ] Início de Ferramenta de Migrations de Banco de Dados (`golang-migrate` ou `goose`).
+- [ ] Início de Ferramenta de Migrations de Banco de Dados (`golang-migrate`).
 
 ## Phase 2: Core Auth, Foundation & API Documentation
 *Objetivo: O pilar de autenticação, agora completamente auto-documentado, rodando fortemente testado (unidade e httptest).*

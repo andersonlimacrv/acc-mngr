@@ -1,0 +1,62 @@
+services:
+  frontend:
+    build:
+      context: ./client
+      args:
+        VITE_FRONTEND_PORT: ${VITE_FRONTEND_PORT}
+        VITE_BACKEND_PORT: ${VITE_BACKEND_PORT}
+        VITE_DEPLOY_API: ${VITE_DEPLOY_API}
+
+
+    container_name: acc-mngr_frontend
+    depends_on:
+      - backend
+    env_file: .env
+    environment:
+      - VITE_FRONTEND_PORT=${VITE_FRONTEND_PORT}
+      - VITE_BACKEND_PORT=${VITE_BACKEND_PORT}
+      - VITE_DEPLOY_API=${VITE_DEPLOY_API}
+    networks:
+      - app-network
+    ports:
+      - "${VITE_FRONTEND_PORT}:${VITE_FRONTEND_PORT}"
+    volumes:
+      - ./frontend-output:/app/output
+    restart: unless-stopped
+
+  db:
+    image: postgres:17
+    container_name: acc-mngr_db
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      TZ: UTC
+      PGTZ: UTC
+    command: >
+      postgres
+      -c timezone=UTC
+      -c log_timezone=UTC
+      -c datestyle='ISO, DMY'
+      -c intervalstyle=iso_8601
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backups:/backups
+    networks:
+      - app-network
+    ports:
+      - "${DB_PORT}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    
+volumes:
+  pgdata:
+
+networks:
+  app-network:
+    
