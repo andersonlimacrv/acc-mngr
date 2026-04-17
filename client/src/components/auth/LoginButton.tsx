@@ -39,7 +39,7 @@ export function LoginButton() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger 
-        render={<RainbowButton variant="outline" size="lg" className="gap-2 mx-4" />}
+        render={<RainbowButton variant="outline" size="lg" className="mx-2" />}
       >
         <HugeiconsIcon icon={LogIn} size={24} color="currentColor" strokeWidth={1.5} />
         <span> Sign In</span>

@@ -4,7 +4,7 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 hover:bg-accent/20 bg-foreground/5 cursor-pointer rounded-lg transition-colors shadow-sm"
+      className="p-1.5 hover:bg-accent/20 bg-foreground/5 cursor-pointer rounded-full transition-colors shadow-xs border border-input"
     >
       {theme === "dark" ? (
         <svg
