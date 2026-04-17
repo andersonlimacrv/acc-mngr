@@ -1,7 +1,7 @@
-import { createContext, useState, useEffect, useCallback, type ReactNode } from "react";
+import { createContext, useState, type ReactNode } from "react";
 import type { AuthContextType, User } from "@/types/auth";
-import { usersApi } from "@/services/domains/users/usersApi";
 import { useToast } from "@/hooks/useToast";
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 interface AuthProviderProps {
@@ -10,81 +10,57 @@ interface AuthProviderProps {
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const { addToast } = useToast();
-  const [token, setToken] = useState<string | null>(() =>
-    localStorage.getItem("access_token")
-  );
   const [user, setUser] = useState<User | null>(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  const login = async (userData: User, token: string) => {
+  // Hardcoded credentials
+  const ROOT_USER = "123";
+  const ROOT_PASS = "123";
+
+  const login = async (username: string, password: string) => {
     setIsLoading(true);
-    try {
-      setToken(token);
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    if (username === ROOT_USER && password === ROOT_PASS) {
+      const userData: User = { username };
       setUser(userData);
-      localStorage.setItem("access_token", token);
       localStorage.setItem("user", JSON.stringify(userData));
       addToast({
         type: "success",
         title: "Login successful!",
         description: `Welcome, ${userData.username}!`,
       });
-    } finally {
+    } else {
+      addToast({
+        type: "error",
+        title: "Login failed!",
+        description: "Invalid credentials.",
+      });
       setIsLoading(false);
+      throw new Error("Invalid credentials");
     }
+    setIsLoading(false);
   };
-  const clearAuth = () => {
-    setToken(null);
+
+  const logout = () => {
     setUser(null);
-    localStorage.removeItem("access_token");
     localStorage.removeItem("user");
-  }
+    addToast({
+      type: "info",
+      title: "Logged out",
+      description: "You have been logged out successfully.",
+    });
+  };
 
-  const logout = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      await usersApi.logout();
-    } finally {
-      clearAuth();
-      setIsLoading(false);
-    }
-  }, []);
-
-  const getAuthHeader = () =>
-    token ? { Authorization: `Bearer ${token}` } : null;
-
-  const isAuthenticated = !!token;
-
-  useEffect(() => {
-    const handleUnauthorized = () => {
-      clearAuth();
-    };
-
-    window.addEventListener("auth:unauthorized", handleUnauthorized);
-
-    return () => {
-      window.removeEventListener("auth:unauthorized", handleUnauthorized);
-    };
-  }, [addToast]);
-
-  useEffect(() => {
-    const syncAuth = (e: StorageEvent) => {
-      if (e.key === "access_token") {
-        setToken(e.newValue);
-      }
-      if (e.key === "user") {
-        setUser(e.newValue ? JSON.parse(e.newValue) : null);
-      }
-    };
-    window.addEventListener("storage", syncAuth);
-    return () => window.removeEventListener("storage", syncAuth);
-  }, []);
+  const isAuthenticated = !!user;
 
   return (
     <AuthContext.Provider
-      value={{ user, isAuthenticated, isLoading, login, logout, getAuthHeader }}
+      value={{ user, isAuthenticated, isLoading, login, logout }}
     >
       {children}
     </AuthContext.Provider>
