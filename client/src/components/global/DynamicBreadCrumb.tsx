@@ -32,8 +32,8 @@ export default function DynamicBreadCrumb() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem className="hidden md:block">
-          <BreadcrumbLink>
-            <Link to="/">🏠︎</Link>
+          <BreadcrumbLink render={<Link to="/" />}>
+            🏠︎
           </BreadcrumbLink>
         </BreadcrumbItem>
 
@@ -52,8 +52,8 @@ export default function DynamicBreadCrumb() {
                 {isLast ? (
                   <BreadcrumbPage>{displayName}</BreadcrumbPage>
                 ) : (
-                  <BreadcrumbLink>
-                    <Link to={path}>{displayName}</Link>
+                  <BreadcrumbLink render={<Link to={path} />}>
+                    {displayName}
                   </BreadcrumbLink>
                 )}
               </BreadcrumbItem>

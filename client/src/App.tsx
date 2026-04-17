@@ -4,7 +4,7 @@ import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { LandingPage } from "@/pages/LandingPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { useAuth } from "@/hooks/useAuth";
-const DashboardLayout = () => <div>Dashboard</div>;
+import { DashboardLayout } from "@/components/layouts/DashboardLayout";
 const HomePage = () => <div>Home</div>;
 function App() {
     const { isAuthenticated } = useAuth();

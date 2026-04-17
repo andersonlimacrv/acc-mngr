@@ -75,7 +75,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
               >
                 <Link to={item.url}>
                   {item.icon && (
-                    <item.icon className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                    <item.icon className="mr-2 h-4 w-4 transition-transform duration-300 scale-120" />
                   )}
                   <span>{item.title}</span>
                 </Link>
