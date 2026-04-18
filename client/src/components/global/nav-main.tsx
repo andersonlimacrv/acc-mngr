@@ -36,7 +36,7 @@ interface NavItem {
   items?: NavSubItem[];
 }
 
-export function NavMain({ items }: { items: NavItem[] }) {
+export function NavMain({ label, items }: { label?: string; items: NavItem[] }) {
   const location = useLocation();
 
   const isItemActive = (itemUrl: string) => {
@@ -60,7 +60,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      {label && <SidebarGroupLabel>{label}</SidebarGroupLabel>}
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible

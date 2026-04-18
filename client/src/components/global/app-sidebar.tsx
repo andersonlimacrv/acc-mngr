@@ -37,7 +37,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <WorkspaceSwitcher workspaces={data.workspaces} />
       </SidebarGroupLabel>
       <SidebarContent>
-        <NavMain items={navbarItems.navMain} />
+        {navbarItems.navMain.map((group) => (
+          <NavMain key={group.label} label={group.label} items={group.items} />
+        ))}
         <NavSecondary items={navbarItems.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>{/* nada ainda */}</SidebarFooter>
