@@ -15,8 +15,8 @@ export function DashboardLayout() {
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset>
-          <header className="flex h-14 shrink-0  items-center gap-2 px-3 lg:pr-6 border-b border-muted-foreground/10  transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-            <div className="flex  items-center gap-2 w-full">
+           <header className="flex h-12 shrink-0  items-center gap-2 px-3 lg:pr-6 border-b border-muted-foreground/10  transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+             <div className="flex items-center gap-2 w-full">
               <SidebarTrigger className="-ml-1" />
               <Separator
                 orientation="vertical"

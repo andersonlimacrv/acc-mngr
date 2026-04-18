@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
+  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuAction,
   SidebarMenuButton,
@@ -59,6 +60,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
 
   return (
     <SidebarGroup>
+      <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -71,7 +73,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
                 asChild
                 tooltip={item.title}
                 isActive={isItemActive(item.url)}
-                className="group data-[active=true]:bg-accent/60 data-[active=true]:text-muted-foreground font-light shadow-xs transition-colors duration-300 ease-in-out hover:bg-accent/30 hover:text-accent-foreground"
+                className="group data-[active=true]:bg-accent bg-muted-foreground/5 data-[active=true]:text-muted-foreground font-light transition-colors duration-300 ease-in-out hover:bg-accent/30 hover:text-accent-foreground"
               >
                 <Link to={item.url}>
                   {item.icon && (
@@ -113,7 +115,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
                                 <SidebarMenuSubButton
                                   asChild
                                   isActive={isSubItemActive(subItem.url)}
-                                  className="data-[active=true]:bg-muted-foreground/10 my-1 shadow-xs transition-colors duration-300 hover:bg-muted/20"
+                                  className="data-[active=true]:bg-muted-foreground/10 my-1 transition-colors duration-300 hover:bg-muted/20 font-normal"
                                 >
                                   <Link to={subItem.url}>
                                     {subItem.icon && (

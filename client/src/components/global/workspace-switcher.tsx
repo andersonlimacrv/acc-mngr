@@ -24,7 +24,7 @@ export function WorkspaceSwitcher({
   workspaces: {
     name: string;
     logo_url: string | null;
-    unidade: string;
+    team: string;
   }[];
 }) {
   const { isMobile } = useSidebar();

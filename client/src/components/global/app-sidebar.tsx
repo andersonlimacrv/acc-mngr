@@ -15,14 +15,14 @@ import { Logo } from "@/components/common/Logo";
 const data = {
   workspaces: [
     {
-      name: "Unidade Name",
+      name: "Workspace Name",
       logo_url: null,
-      unidade: "Unidade name 1 ",
+      team: "Team 1",
     },
     {
-      name: "Another unidade",
+      name: "Workspace Name 2",
       logo_url: null,
-      unidade: "Unidade name 2",
+      team: "Team 2",
     },
   ],
 };

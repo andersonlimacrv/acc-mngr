@@ -15,7 +15,7 @@ export const navbarItems = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/",
+      url: "/~",
       icon: LayoutDashboard,
       isActive: false,
     },
