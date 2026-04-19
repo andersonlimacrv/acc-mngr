@@ -23,13 +23,13 @@ export function NavSecondary({
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>
-        <SidebarMenu>
+        <SidebarMenu className="border-b border-muted-foreground/10 pb-1">
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild size="sm">
                 <Link to={item.url}>
                   <item.icon />
-                  <span>{item.title}</span>
+                  <span className="font-light">{item.title}</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

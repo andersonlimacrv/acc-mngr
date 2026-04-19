@@ -27,13 +27,20 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     if (username === ROOT_USER && password === ROOT_PASS) {
-      const userData: User = { username };
+      const userData: User = { 
+        user_id: "123e4567-e89b-12d3-a456-426614174000",
+        username: username,
+        name: username === "123" ? "Anderson" : username, // display name
+        email: "anderson@example.com", // actual email
+        avatar_url: "https://i.pravatar.cc/300",
+        role: "admin"
+      };
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       addToast({
         type: "success",
         title: "Login successful!",
-        description: `Welcome, ${userData.username}!`,
+        description: `Welcome, ${userData.name}!`,
       });
     } else {
       addToast({

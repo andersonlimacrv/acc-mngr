@@ -13,6 +13,7 @@ import { WorkspaceSwitcher } from "@/components/global/workspace-switcher";
 import { Logo } from "@/components/common/Logo";
 import { UserNavbarItems } from "@/components/global/navbar/UserNavbarItems";
 import { useSidebar } from "@/components/ui/sidebar";
+import { useAuth } from "@/hooks/useAuth";
 
 const data = {
   workspaces: [
@@ -29,15 +30,10 @@ const data = {
   ],
 };
 
-const user = {
-  user_id: '123e4567-e89b-12d3-a456-426614174000',
-  name: "Anderson",
-  email: "anderson@example.com",
-  avatar: "https://i.pravatar.cc/300",
-};
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { isMobile } = useSidebar();
+  const { user } = useAuth();
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
@@ -55,7 +51,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={navbarItems.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <UserNavbarItems user={user} isMobile={isMobile}/>
+        {user && <UserNavbarItems user={user} isMobile={isMobile}/>}
       </SidebarFooter>
     </Sidebar>
   );

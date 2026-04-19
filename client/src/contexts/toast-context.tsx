@@ -131,7 +131,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     <ToastContext.Provider value={{ addToast }}>
       {children}
       <Toaster
-        position="top-right"
+        position="top-center"
         expand={true}
         richColors={true}
         closeButton={false}

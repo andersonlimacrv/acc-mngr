@@ -36,7 +36,7 @@ export function Header() {
                   <HugeiconsIcon icon={User} size={24} color="currerentColor" strokeWidth={1.5} />
                 </div>
                 <span className="text-sm font-semibold hidden sm:inline-block capitalize">
-                  {user.username}
+                  {user.name}
                 </span>
               </div>
               <Button
