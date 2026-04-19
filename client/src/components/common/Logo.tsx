@@ -16,11 +16,11 @@ export function Logo({ className = "", size = "lg" }: LogoProps) {
 
   return (
     <img
-      src="/logo.png" // /public/logo.png
-      alt="Imagem do Logo(descrever)"
+      src="/logo_acc-mngr.png" // /public/logo.png
+      alt="logo acc-mngr"
       className={`${sizeClasses[size]} py-1 object-contain ${className}`}
       style={{
-        filter: "drop-shadow(0 10px 25px rgba(6, 182, 212, 0.3))",
+        filter: "drop-shadow(0 10px 25px rgba(208, 212, 6, 0.3))",
       }}
     />
   );

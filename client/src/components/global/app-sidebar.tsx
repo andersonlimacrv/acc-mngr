@@ -31,7 +31,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
-        <Logo size="md" />
+        <div className="flex items-center gap-1 mr-auto">
+          <Logo size="sm" /> <SidebarGroupLabel className="text-primary text-lg tracking-widest">acc-mngr</SidebarGroupLabel>
+        </div>
       </SidebarHeader>
       <SidebarGroupLabel className="mb-2 mt-6">
         <WorkspaceSwitcher workspaces={data.workspaces} />

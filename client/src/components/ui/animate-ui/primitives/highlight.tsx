@@ -135,7 +135,7 @@ function Highlight<T extends React.ElementType = "div">({
     enabled = true,
     controlledItems,
     disabled = false,
-    exitDelay = 200,
+    exitDelay = 0,
     mode = "children",
   } = props;
 
