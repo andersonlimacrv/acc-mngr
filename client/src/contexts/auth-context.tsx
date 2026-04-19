@@ -1,5 +1,6 @@
 import { createContext, useState, type ReactNode } from "react";
-import type { AuthContextType, User } from "@/types/auth";
+import type { AuthContextType } from "@/types/auth";
+import type { User } from "@/types/user";
 import { useToast } from "@/hooks/useToast";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

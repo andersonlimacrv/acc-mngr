@@ -3,7 +3,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/global/app-sidebar";
+import { AppSidebar } from "@/components/global/navbar/app-sidebar";
 import { Outlet } from "react-router-dom";
 import DynamicBreadCrumb from "@/components/global/DynamicBreadCrumb";
 import { ThemeSwitcher } from "@/components/global/ThemeSwitcher";

@@ -13,7 +13,6 @@ import {
 import {
   SidebarMenu,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
 
 
@@ -21,14 +20,15 @@ import UserAvatar from "@/components/common/UserAvatar";
 
 export function WorkspaceSwitcher({
   workspaces,
+  isMobile
 }: {
   workspaces: {
     name: string;
     logo_url: string | null;
     team: string;
   }[];
+  isMobile: boolean;
 }) {
-  const { isMobile } = useSidebar();
   const activeWorkspace = workspaces[0];
 
   if (!activeWorkspace) {
@@ -53,7 +53,7 @@ export function WorkspaceSwitcher({
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="start"
-            side={isMobile ? "bottom" : "right"}
+            side={ isMobile ? "bottom" : "right"}
             sideOffset={4}
           >
             <DropdownMenuLabel className="text-border flex items-center gap-2">
