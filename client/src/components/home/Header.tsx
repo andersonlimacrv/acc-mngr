@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { LoginButton } from "@/components/auth/LoginButton";
 import { useAuth } from "@/hooks/useAuth";
 import { ThemeSwitcher } from "@/components/global/ThemeSwitcher";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const { user, logout, isAuthenticated } = useAuth();
@@ -39,12 +40,11 @@ export function Header() {
                   {user.name}
                 </span>
               </div>
-              <Button
-                onClick={() => (window.location.href = "/~")}
-                variant="outline"
-              >
-                Dashboard
-              </Button>
+              <Link to="/~">
+                <Button variant="outline">
+                  Dashboard
+                </Button>
+              </Link>
               <Button variant="outline" onClick={logout}>
                 Logout
               </Button>

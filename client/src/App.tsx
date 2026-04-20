@@ -5,7 +5,7 @@ import { LandingPage } from "@/pages/LandingPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { useAuth } from "@/hooks/useAuth";
 import { DashboardLayout } from "@/components/layouts/DashboardLayout";
-const HomePage = () => <div>Home</div>;
+import { HomePage } from "@/pages/~/Home";
 function App() {
     const { isAuthenticated } = useAuth();
     return (
