@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator";
 export function DashboardLayout() {
   return (
     <>
-      <SidebarProvider>
+      <SidebarProvider className="selection:bg-primary/30 selection:text-primary">
         <AppSidebar />
         <SidebarInset>
           <div className="flex flex-col h-screen overflow-hidden my-[-10px]">
@@ -29,7 +29,7 @@ export function DashboardLayout() {
                 <ThemeSwitcher />
               </div>
             </header>
-            <div className="flex flex-1 flex-col gap-4 mb-2 p-4 overflow-y-auto">
+            <div className="flex flex-1 flex-col gap-4 mb-2 p-4 overflow-y-auto!">
               <Outlet />
             </div>
           </div>
