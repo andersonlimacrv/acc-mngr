@@ -15,21 +15,23 @@ export function DashboardLayout() {
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset>
-           <header className="flex h-12 shrink-0  items-center gap-2 px-3 lg:pr-5 border-b border-muted-foreground/10  transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-             <div className="flex items-center gap-2 w-full">
-              <SidebarTrigger className="-ml-1" />
-              <Separator
-                orientation="vertical"
-                className="mr-2 data-[orientation=vertical]:h-2"
-              />
-              <DynamicBreadCrumb />
+          <div className="flex flex-col h-screen overflow-hidden my-[-10px]">
+            <header className="flex h-12 shrink-0 gap-2 items-center mt-2 px-3 lg:pr-5 border-b border-muted-foreground/10  transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+              <div className="flex items-center gap-2 w-full">
+                <SidebarTrigger className="-ml-1" />
+                <Separator
+                  orientation="vertical"
+                  className="mr-2 data-[orientation=vertical]:h-2"
+                />
+                <DynamicBreadCrumb />
+              </div>
+              <div className="lg:-mr-3">
+                <ThemeSwitcher />
+              </div>
+            </header>
+            <div className="flex flex-1 flex-col gap-4 mb-2 p-4 overflow-y-auto">
+              <Outlet />
             </div>
-            <div className="lg:-mr-3">
-              <ThemeSwitcher />
-            </div>
-          </header>
-          <div className="flex flex-1 flex-col gap-4 mx-2 my-4 p-2 pt-0 ">
-            <Outlet />
           </div>
         </SidebarInset>
       </SidebarProvider>
