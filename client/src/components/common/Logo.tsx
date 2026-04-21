@@ -18,7 +18,7 @@ export function Logo({ className = "", size = "lg" }: LogoProps) {
     <img
       src="/logo_acc-mngr.png" // /public/logo.png
       alt="logo acc-mngr"
-      className={`${sizeClasses[size]} py-1 object-contain ${className}`}
+      className={`${sizeClasses[size]} object-contain ${className}`}
       style={{
         filter: "drop-shadow(0 10px 25px rgba(208, 212, 6, 0.3))",
       }}

@@ -36,10 +36,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar variant="inset" {...props}>
-      <SidebarHeader>
-        <div className="flex items-center gap-1 mr-auto">
-          <Logo size="sm" /> <SidebarGroupLabel className="text-primary text-lg tracking-widest">acc-mngr</SidebarGroupLabel>
+      <SidebarHeader className="flex items-center flex-row">
+        <div className="w-1/3">
+          <Logo size="sm" />
         </div>
+        <SidebarGroupLabel className="w-2/3 p-0 m-0 text-primary text-lg tracking-widest">acc-mngr</SidebarGroupLabel>
       </SidebarHeader>
       <SidebarGroupLabel className="mb-2 mt-6">
         <WorkspaceSwitcher workspaces={data.workspaces} isMobile={isMobile} />
