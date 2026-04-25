@@ -241,7 +241,7 @@
   color: var(--normal-text) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-radius: 4px !important;
+  border-radius: 8px !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
   font-weight: 500 !important;
   padding: 16px !important;

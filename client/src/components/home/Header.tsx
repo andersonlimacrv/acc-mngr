@@ -5,9 +5,10 @@ import { LoginButton } from "@/components/auth/LoginButton";
 import { useAuth } from "@/hooks/useAuth";
 import { ThemeSwitcher } from "@/components/global/ThemeSwitcher";
 import { Link } from "react-router-dom";
-import { LayoutDashboard, ShieldCheck, LogOut } from "lucide-react";
+import { LayoutDashboard, LogOut } from "lucide-react";
 import { Logo } from "@/components/common/Logo";
 import UserAvatar from "@/components/common/UserAvatar";
+import { Highlight, HighlightItem } from "@/components/ui/animate-ui/primitives/highlight";
 
 export function Header() {
   const { user, logout, isAuthenticated } = useAuth();
@@ -39,12 +40,27 @@ export function Header() {
           <span className="font-sans font-bold text-lg tracking-tight">acc-mngr</span>
         </Link> 
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-          <Link to="#features" className="hover:text-foreground transition-colors">Features</Link>
-          <Link to="#security" className="hover:text-foreground transition-colors">Security</Link>
-          <Link to="#docs" className="hover:text-foreground transition-colors">Documentation</Link>
-          <Link to="#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
-        </nav>
+        <Highlight
+          as="nav"
+          mode="parent"
+          hover
+          controlledItems
+          containerClassName="hidden md:flex items-center gap-1 text-sm font-medium text-muted-foreground"
+          className="bg-accent rounded-md"
+        >
+          <HighlightItem asChild>
+            <Link to="#features" className="relative z-10 px-4 py-2 hover:text-foreground transition-colors">Features</Link>
+          </HighlightItem>
+          <HighlightItem asChild>
+            <Link to="#security" className="relative z-10 px-4 py-2 hover:text-foreground transition-colors">Security</Link>
+          </HighlightItem>
+          <HighlightItem asChild>
+            <Link to="#docs" className="relative z-10 px-4 py-2 hover:text-foreground transition-colors">Documentation</Link>
+          </HighlightItem>
+          <HighlightItem asChild>
+            <Link to="#pricing" className="relative z-10 px-4 py-2 hover:text-foreground transition-colors">Pricing</Link>
+          </HighlightItem>
+        </Highlight>
         <div className="flex items-center">
           {mounted && (
             <ThemeSwitcher />
@@ -61,11 +77,11 @@ export function Header() {
                 />
               </div>
               <Link to="/~">
-                <Button variant="secondary" size="lg" className="w-28">
+                <Button variant="secondary" size="lg" className="w-26">
                   <LayoutDashboard className="max-h-3 max-w-3" />Dashboard
                 </Button>
               </Link>
-              <Button variant="destructive" size="lg" className="w-28" onClick={logout}>
+              <Button variant="destructive" size="lg" className="w-26" onClick={logout}>
                 <LogOut className="max-h-3 max-w-3" />Logout
               </Button>
             </div>
