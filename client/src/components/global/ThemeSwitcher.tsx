@@ -4,11 +4,11 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-1.5 hover:bg-accent/20 bg-foreground/5 cursor-pointer rounded-full transition-colors shadow-xs border border-input"
+      className="w-9 h-9 hover:bg-accent/20 bg-foreground/5 cursor-pointer rounded-full transition-colors border border-input"
     >
       {theme === "dark" ? (
         <svg
-          className="w-5 h-5"
+          className="w-5 h-5 mx-auto"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ export function ThemeSwitcher() {
         </svg>
       ) : (
         <svg
-          className="w-5 h-5"
+          className="w-5 h-5 mx-auto"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

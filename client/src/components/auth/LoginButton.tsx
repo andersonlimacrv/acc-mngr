@@ -14,8 +14,7 @@ import { Label } from "@/components/ui/label"
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { LogIn } from "@hugeicons/core-free-icons"
+import { LogIn } from "lucide-react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 export function LoginButton() {
   const [open, setOpen] = useState(false);
@@ -39,10 +38,9 @@ export function LoginButton() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger 
-        render={<RainbowButton variant="outline" size="lg" className="mx-2" />}
+        render={<RainbowButton variant="default" size="sm" className="px-4"/>}
       >
-        <HugeiconsIcon icon={LogIn} size={24} color="currentColor" strokeWidth={1.5} />
-        <span> Sign In</span>
+        <span className="flex items-center gap-2"> <LogIn className="max-h-3 max-w-3"/>Sign In</span>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <form onSubmit={handleLogin}>
