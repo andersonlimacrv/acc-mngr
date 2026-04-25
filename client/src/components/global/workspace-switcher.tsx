@@ -18,18 +18,14 @@ import {
 
 import UserAvatar from "@/components/common/UserAvatar";
 
+import { useWorkspace } from "@/hooks/useWorkspace";
+
 export function WorkspaceSwitcher({
-  workspaces,
   isMobile
 }: {
-  workspaces: {
-    name: string;
-    logo_url: string | null;
-    team: string;
-  }[];
   isMobile: boolean;
 }) {
-  const activeWorkspace = workspaces[0];
+  const { workspaces, activeWorkspace, setActiveWorkspace } = useWorkspace();
 
   if (!activeWorkspace) {
     return null;
@@ -47,7 +43,7 @@ export function WorkspaceSwitcher({
                 size="md"
                 fallbackIcon={activeWorkspace.name?.[0]?.toUpperCase()}
               />
-              <span className="font-bold font-stretch-75% text-[1rem] truncate max-w-[120px]">{activeWorkspace.name}</span>
+              <span className="font-semibold text-sm font-stretch-75% truncate max-w-[120px]">{activeWorkspace.name}</span>
               <ChevronsUpDown className="ml-auto w-4 h-4" />
             </div>
           </DropdownMenuTrigger>
@@ -57,13 +53,17 @@ export function WorkspaceSwitcher({
             sideOffset={4}
           >
             <DropdownMenuLabel className="text-border flex items-center gap-2">
-              Unidade <HugeiconsIcon icon={Exchange01Icon} className=" ml-auto inline-flex"/>
+              Workspaces <HugeiconsIcon icon={Exchange01Icon} className=" ml-auto inline-flex"/>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            {workspaces.map((workspace) => (
+              <DropdownMenuItem 
+                key={workspace.name}
+                onClick={() => setActiveWorkspace(workspace)}
+              >
+                <span className="font-bold px-2 min-w-32">{workspace.name}</span>
+              </DropdownMenuItem>
+            ))}
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               {" "}

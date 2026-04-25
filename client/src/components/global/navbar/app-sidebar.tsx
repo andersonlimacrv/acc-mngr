@@ -15,20 +15,6 @@ import { UserNavbarItems } from "@/components/global/navbar/UserNavbarItems";
 import { useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/hooks/useAuth";
 
-const data = {
-  workspaces: [
-    {
-      name: "Workspace Name",
-      logo_url: null,
-      team: "Team 1",
-    },
-    {
-      name: "Workspace Name 2",
-      logo_url: null,
-      team: "Team 2",
-    },
-  ],
-};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { isMobile } = useSidebar();
@@ -43,7 +29,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarGroupLabel className="w-2/3 p-0 m-0 text-primary text-lg tracking-widest">acc-mngr</SidebarGroupLabel>
       </SidebarHeader>
       <SidebarGroupLabel className="mb-2 mt-6">
-        <WorkspaceSwitcher workspaces={data.workspaces} isMobile={isMobile} />
+        <WorkspaceSwitcher isMobile={isMobile} />
       </SidebarGroupLabel>
       <SidebarContent>
         {navbarItems.navMain.map((group) => (

@@ -8,10 +8,11 @@ import { Outlet } from "react-router-dom";
 import DynamicBreadCrumb from "@/components/global/DynamicBreadCrumb";
 import { ThemeSwitcher } from "@/components/global/ThemeSwitcher";
 import { Separator } from "@/components/ui/separator";
+import { WorkspaceProvider } from "@/contexts/workspace-context";
 
 export function DashboardLayout() {
   return (
-    <>
+    <WorkspaceProvider>
       <SidebarProvider className="selection:bg-primary/30 selection:text-primary">
         <AppSidebar />
         <SidebarInset>
@@ -35,6 +36,6 @@ export function DashboardLayout() {
           </div>
         </SidebarInset>
       </SidebarProvider>
-    </>
+    </WorkspaceProvider>
   );
 }

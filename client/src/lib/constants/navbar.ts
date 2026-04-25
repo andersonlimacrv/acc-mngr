@@ -1,13 +1,12 @@
 import {
   LayoutDashboard,
-  Package,
+  Folder,
   Logs,
   LifeBuoy,
-  CloudUpload,
+  Wallet,
   Settings,
   CircleFadingArrowUp,
-  Radio,
-  Cpu,
+  AppWindowMac,
   Building2,
 } from "lucide-react";
 
@@ -17,15 +16,15 @@ export const navbarItems = {
       label: "Platform",
       items: [
         {
-          title: "Dashboard",
+          title: "Overview",
           url: "/~",
           icon: LayoutDashboard,
           isActive: false,
         },
         {
-          title: "Broker",
-          url: "/broker",
-          icon: Radio,
+          title: "Applications",
+          url: "/applications",
+          icon: AppWindowMac,
           isActive: true,
         },
         {
@@ -40,43 +39,25 @@ export const navbarItems = {
       label: "Management",
       items: [
         {
-          title: "Devices",
-          url: "/devices",
-          icon: Cpu,
+          title: "Settings",
+          url: "/settings",
+          icon: Settings,
           isActive: true,
           items: [
             {
-              title: "Show All",
-              url: "/devices/all",
-              icon: Logs,
+              title: "Billing",
+              url: "/settings/billing",
+              icon: Wallet,
             },
             {
-              title: "Configuration",
-              url: "/devices/config",
-              icon: Settings,
+              title: "Workspaces",
+              url: "/settings/workspaces",
+              icon: Folder,
             },
             {
-              title: "Upgrade Firmware",
-              url: "/devices/upgrade",
+              title: "Integrations",
+              url: "/settings/integrations",
               icon: CircleFadingArrowUp,
-            },
-          ],
-        },
-        {
-          title: "Firmware",
-          url: "/firmware",
-          icon: Package,
-          isActive: true,
-          items: [
-            {
-              title: "Show All",
-              url: "/firmware/all",
-              icon: Logs,
-            },
-            {
-              title: "Upload",
-              url: "/firmware/upload",
-              icon: CloudUpload,
             },
           ],
         },
@@ -88,6 +69,12 @@ export const navbarItems = {
       title: "Support",
       url: "/",
       icon: LifeBuoy,
+      isActive: false,
+    },
+    {
+      title: "Documentation",
+      url: "/docs",
+      icon: Logs,
       isActive: false,
     }
   ],
