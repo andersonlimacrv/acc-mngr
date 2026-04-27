@@ -38,7 +38,7 @@ export function LoginButton() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger 
-        render={<RainbowButton variant="default" size="sm" className="px-4"/>}
+        render={<RainbowButton variant="default" size="lg"/>}
       >
         <span className="flex items-center gap-2"> <LogIn className="max-h-3 max-w-3"/>Sign In</span>
       </DialogTrigger>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal } from "lucide-react";
+import { ArrowRight, Terminal, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -19,7 +19,8 @@ export function Hero() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-8"
           >
             <Terminal className="w-3 h-3" />
-            <span>v2.4.0 — Enterprise Grade Identity</span>
+            <span>Enterprise-grade security for modern applications</span>
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           </motion.div>
 
           <motion.h1
@@ -28,8 +29,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 font-sans text-foreground"
           >
-            Authentication without <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/50">compromise.</span>
+           Identity that grows <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/50">with you.</span>
           </motion.h1>
 
           <motion.p
@@ -38,7 +39,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            The precision-machined identity layer for modern SaaS. Secure by default, globally distributed, and engineered for teams that take operations seriously.
+            The precision-machined authentication and access management built for developers who demand security, performance, and elegant integration.
           </motion.p>
 
           <motion.div
@@ -106,7 +107,27 @@ export function Hero() {
               </div>
             </div>
           </div>
+          {/* Trust Badges */}
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-muted-foreground/60">
+            <div className="flex items-center gap-2 text-sm">
+              <Check className="w-4 h-4 text-primary" />
+              SOC 2 Compliant
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <Check className="w-4 h-4 text-primary" />
+              GDPR Ready
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <Check className="w-4 h-4 text-primary" />
+              99.99% Uptime SLA
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <Check className="w-4 h-4 text-primary" />
+              256-bit Encryption
+            </div>
+          </div>
         </motion.div>
+         
       </div>
     </section>
   );
