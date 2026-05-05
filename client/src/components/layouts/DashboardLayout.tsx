@@ -22,11 +22,11 @@ export function DashboardLayout() {
                 <SidebarTrigger className="-ml-1" />
                 <Separator
                   orientation="vertical"
-                  className="mr-2 data-[orientation=vertical]:h-2"
+                  className="mr-2 data-[orientation=vertical]:h-4"
                 />
                 <DynamicBreadCrumb />
               </div>
-                <ThemeSwitcher />
+              <ThemeSwitcher />
             </header>
             <div className="flex flex-1 flex-col gap-4 mb-2 p-4 overflow-y-auto!">
               <Outlet />
